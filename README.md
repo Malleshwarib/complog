@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CompLog - Explore Competitions</title>
     <style>
@@ -30,6 +28,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 20px;
         }
 
         .logo {
@@ -74,8 +73,8 @@
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
+            padding: 20px 0;
             justify-content: center;
-            margin-top: 10px;
         }
 
         .nav a {
@@ -89,17 +88,15 @@
             flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
-            align-items: stretch;
         }
 
         .filters {
             background-color: #e0e0e0;
             padding: 20px;
             border-radius: 10px;
-            width: 100%;
-            max-width: 250px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            flex: 1;
+            width: 100%;
+            max-width: 300px;
         }
 
         .filters h2 {
@@ -107,13 +104,25 @@
             margin-bottom: 20px;
         }
 
+        .year-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .main-content {
-            flex: 3;
+            flex: 1;
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            min-width: 300px;
+            min-height: 500px;
         }
 
         .content-header {
@@ -122,6 +131,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+            margin-bottom: 20px;
         }
 
         .content-title {
@@ -133,7 +143,7 @@
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 20px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 16px;
@@ -149,39 +159,105 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .card-info h3 {
             font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-info p {
+            color: #555;
+            margin-bottom: 5px;
         }
 
         .view-button {
             background-color: #90EE90;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 40px;
             border-radius: 20px;
             cursor: pointer;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .filters {
+                max-width: 100%;
+            }
+
+            .main-content {
+                width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
             .header-container {
                 border-radius: 0;
+            }
+
+            .top-bar {
+                flex-direction: column;
                 text-align: center;
             }
 
-            .content-header {
-                text-align: center;
+            .nav {
                 flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .content-header {
+                flex-direction: column;
+                text-align: center;
             }
 
             .competition-card {
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
+                align-items: flex-start;
             }
 
             .view-button {
                 width: 100%;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 15px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .content-title {
+                font-size: 22px;
+            }
+
+            .add-button {
+                width: 100%;
+            }
+
+            .filters, .main-content {
+                padding: 15px;
             }
         }
     </style>
@@ -212,9 +288,15 @@
             <h2>Filters</h2>
             <div class="year-section">
                 <h3>- Year</h3>
-                <div>
-                    <input type="checkbox" id="year2024"> <label for="year2024">2024</label>
-                    <input type="checkbox" id="year2025"> <label for="year2025">2025</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="year2024">
+                        <label for="year2024">2024</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="year2025">
+                        <label for="year2025">2025</label>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -229,10 +311,11 @@
                 <div class="card-info">
                     <h3>Intercollege Science Quiz</h3>
                     <p>ABC college name</p>
-                    <p>Date: January 1st,2024</p>
+                    <p>Date: January 1st, 2024</p>
                 </div>
                 <button class="view-button">View</button>
-                <div class="competition-card">
+            </div>
+            <div class="competition-card">
                 <div class="card-info">
                     <h3>Intercollege Science Quiz</h3>
                     <p>ABC college name</p>
